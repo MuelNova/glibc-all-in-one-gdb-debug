@@ -45,17 +45,15 @@ SECTIONS = [".text", ".rodata", ".data", ".bss"]
 
 class FetchCMD(gdb.Command):
     """
-    fetch-debug Fetch and set glibc debug info, especially for glibc-all-in-one
-
-    If $DEFAULT_FETCH is set, it will automatically find and load debug
-    symbols when a new process is attached.
+    fetch-debug - Fetch and set glibc debug info, especially for glibc-all-in-one
 
     Usage:
         fetch-debug [PATH]
 
     Argument:
-        [PATH] - PATH to search, if not set, use $DEBUGDIR first,
-                 if not set, use "{ELF_libc_path}/.debug" directory
+        [PATH] - PATH to search for debug symbols. If not provided:
+                 1. Uses $DEBUGDIR if set
+                 2. Falls back to "{ELF_libc_path}/.debug" directory
 
     Example:
         fetch-debug /usr/share/glibc-all-in-one/libs/2.31-ubuntu9_amd64/.debug
