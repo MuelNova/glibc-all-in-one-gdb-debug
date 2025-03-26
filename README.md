@@ -66,7 +66,7 @@ You can customize the behavior by setting these variables in your `.gdbinit` fil
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `$DEBUGDIR` | Path to search for debug symbols | None |
-| `$FETCH_DEFAULT` | Automatically load debug symbols when attaching to a process | 0 (disabled) |
+| `$FETCH_DEFAULT` | Automatically load debug symbols when attaching to a process | None (Disabled) |
 
 ## Integration with glibc-all-in-one
 
@@ -82,6 +82,11 @@ This tool is designed to work seamlessly with the [glibc-all-in-one](https://git
 2. Set the debug directory in your `.gdbinit`:
    ```
    set $DEBUGDIR="/path/to/glibc-all-in-one/libs/2.31-ubuntu9_amd64/.debug"
+   ```
+
+   or temporarily set the debug direcorty:
+   ```
+   fetch-debug /path/to/glibc-all-in-one/libs/2.31-ubuntu9_amd64/.debug
    ```
 
 ## Troubleshooting
